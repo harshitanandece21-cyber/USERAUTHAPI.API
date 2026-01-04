@@ -1,0 +1,47 @@
+# Build
+bin/
+obj/
+
+# User secrets
+secrets.json
+secrets.*
+
+# VS
+.vs/
+*.user
+*.suo
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Publish
+*.Publish.xml
+
+# Logs
+*.log
+
+# EF Core Migrations
+Migrations/
+
+# Local DB
+*.mdf
+*.ldf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# JetBrains
+*.iml
+
+# NuGet
+*.nupkg
+
+# Coverage
+coverage/**
+
+# Local tool manifest
+.nuget/
