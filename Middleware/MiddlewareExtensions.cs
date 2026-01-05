@@ -1,4 +1,4 @@
-﻿namespace UserAuthApi.Api.Middleware
+namespace UserAuthApi.Api.Middleware
 {
     public static class MiddlewareExtensions
     {
