@@ -45,3 +45,8 @@ coverage/**
 
 # Local tool manifest
 .nuget/
+
+# Java build artifacts
+out/
+*.class
+target/
