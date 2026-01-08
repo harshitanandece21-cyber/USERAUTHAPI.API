@@ -179,10 +179,12 @@ public class Inventory {
         Map<Coin, Integer> tempInventory = new HashMap<>(coinInventory);
         int remaining = amountInCents;
 
-        // Try coins from largest to smallest
-        Coin[] coins = {Coin.DOLLAR, Coin.QUARTER, Coin.DIME, Coin.NICKEL, Coin.PENNY};
+        // Sort coins by value in descending order (largest first)
+        List<Coin> sortedCoins = java.util.Arrays.stream(Coin.values())
+            .sorted((a, b) -> Integer.compare(b.getValue(), a.getValue()))
+            .collect(java.util.stream.Collectors.toList());
         
-        for (Coin coin : coins) {
+        for (Coin coin : sortedCoins) {
             int available = tempInventory.getOrDefault(coin, 0);
             while (remaining >= coin.getValue() && available > 0) {
                 change.add(coin);
@@ -193,9 +195,10 @@ public class Inventory {
         }
 
         if (remaining == 0) {
-            // Update actual inventory
+            // Update actual inventory by decrementing count for each coin used
             for (Coin coin : change) {
-                coinInventory.merge(coin, -1, Integer::sum);
+                int currentCount = coinInventory.get(coin);
+                coinInventory.put(coin, currentCount - 1);
             }
             return change;
         }

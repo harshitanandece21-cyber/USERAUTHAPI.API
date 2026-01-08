@@ -263,4 +263,4 @@ try {
 
 ## License
 
-This project is part of the USERAUTHAPI.API repository.
+This is a demonstration project for educational purposes, showcasing Low-Level Design principles in Java.
